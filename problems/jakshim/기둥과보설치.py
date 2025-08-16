@@ -144,3 +144,34 @@ def solution(n, build_frame):
     return result
 
 print(solution(5,[[0,0,0,1],[2,0,0,1],[4,0,0,1],[0,1,1,1],[1,1,1,1],[2,1,1,1],[3,1,1,1],[2,0,0,0],[1,1,1,0],[2,2,0,1]]))
+"""
+이렇게 간단하게 풀 수 있다니..
+def is_valid(answer):
+    for x, y, stuff in answer:
+        if stuff == 0:  # 기둥
+            if y == 0 or [x, y - 1, 0] in answer or \
+               [x - 1, y, 1] in answer or [x, y, 1] in answer:
+                continue
+            return False
+        else:  # 보
+            if [x, y - 1, 0] in answer or [x + 1, y - 1, 0] in answer or \
+               ([x - 1, y, 1] in answer and [x + 1, y, 1] in answer):
+                continue
+            return False
+    return True
+
+def solution(n, build_frame):
+    answer = []
+
+    for x, y, stuff, operate in build_frame:
+        if operate == 1:
+            answer.append([x, y, stuff])
+            if not is_valid(answer):
+                answer.remove([x, y, stuff])
+        else:
+            answer.remove([x, y, stuff])
+            if not is_valid(answer):
+                answer.append([x, y, stuff])
+
+    return sorted(answer)
+"""
